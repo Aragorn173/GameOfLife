@@ -1,62 +1,39 @@
 package Model;
 import View.*;
 
+import java.util.ArrayList;
+
 public class Model {
 
     int width;
     int height;
     int size;
+    int[] world = new int[size];
 
     public Model(int width, int height) {
         this.width = width;
         this.height = height;
         this.size = width * height;
+        this.world = world;
     }
 
     public void update() {
 
     }
 
+
     public Shape[] getShapes() {
-        isAlive(width, height, shapes)
-        Point[] points = {new Point(5,5), new Point (6, 5), new Point (7, 5)};
+        ArrayList <Point> points = new ArrayList<Point>();
+        points.add(new Point (6, 5));
+        points.add(new Point (5, 5));
         return (Shape[])points;
     }
 
+    public void checkCell(){
+        for(int i = 0; i < size; i++) {
 
-
-    protected int isAlive(int x, int y, byte[] d){
-
-        int count = 0;
-        int pos1 = y * width + x;
-
-        for ( int i = x-1; i <= x + 1; i++ ){
-
-            for ( int j = y - 1; j <= y + 1; j++ ){
-                int pos = j * width + i;
-
-                if ( pos >= 0 && pos < size - 1 && pos != pos1){
-
-                    if ( d[pos] == 1 ){
-
-                        count++;
-                    }
-                }
-            }
         }
-        //dead
 
-        if ( d[pos1] == 0 ){
-            if ( count == 3 ){//becomes alive.
-                return 1;
-            }
-            return 0;//still dead
-
-        }else{//live
-            if ( count < 2 || count > 3 ){//Dies
-                return 0;
-            }
-            return 1;//lives
-        }
     }
+
 }
