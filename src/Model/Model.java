@@ -12,7 +12,7 @@ public class Model {
 
 
     int[] cells = new int[50 * 50];
-    int[] alive = new int [numalive];
+    int[] alive = new int[numalive];
 
     public Model(int width, int height) {
         this.width = width;
@@ -23,8 +23,8 @@ public class Model {
 
     public void update() {
         checkCells();
+        getNeighbour();
     }
-
 
 
     public Shape[] getShapes() {
@@ -40,7 +40,7 @@ public class Model {
         return (Shape[]) points;
     }
 
-    
+
     public void checkCells() {
         int n = 0;
         int x;
@@ -65,9 +65,39 @@ public class Model {
         System.out.println(n);
     }
 
-    
-    public void checkNeighbour() {
 
+    public int getNeighbour() {
+        int grannar = 0;
+
+
+        for (int i = 0; i < alive.length; i++) {
+            if (cells[alive[i] - 51] == 1) {
+                grannar++;
+            }
+            if (cells[alive[i] - 50] == 1) {
+                grannar++;
+            }
+            if (cells[alive[i] - 49] == 1) {
+                grannar++;
+            }
+            if (cells[alive[i] - 1] == 1) {
+                grannar++;
+            }
+            if (cells[alive[i] + 1] == 1) {
+                grannar++;
+            }
+            if (cells[alive[i] + 49] == 1) {
+                grannar++;
+            }
+            if (cells[alive[i] + 50] == 1) {
+                grannar++;
+            }
+            if (cells[alive[i] + 51] == 1) {
+                grannar++;
+            }
+                System.out.println(alive[i] + " has " + grannar + " grannar");
+                grannar = 0;
+            }
+        return grannar;
     }
-
 }
